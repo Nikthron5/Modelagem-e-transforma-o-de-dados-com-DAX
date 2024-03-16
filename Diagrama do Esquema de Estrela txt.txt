@@ -1,0 +1,29 @@
+Processo de Construção do Diagrama do Modelo de Estrela
+Este documento descreve o processo de construção do modelo de estrela com base nos requisitos fornecidos.
+
+1. Criação da Tabela de Backup (Financials_origem)
+Foi feita uma cópia oculta da tabela original "Financial Sample" e nomeada como "Financials_origem". Essa cópia servirá como um backup para manter a integridade dos dados durante o processo de transformação.
+
+2. Criação das Tabelas Dimensão
+D_Produtos
+Selecionadas as colunas relevantes da tabela original, incluindo ID_produto, Produto, Média de Unidades Vendidas, Médias do valor de vendas, Mediana do valor de vendas, Valor máximo de Venda e Valor mínimo de Venda.
+
+D_Produtos_Detalhes
+Selecionadas as informações detalhadas dos produtos, como ID_produtos, Discount Band, Sale Price, Units Sold e Manufactoring Price.
+
+D_Descontos
+Incluídas as informações relacionadas aos descontos, contendo ID_produto, Discount e Discount Band.
+
+D_Detalhes
+Essa dimensão provavelmente abrange outras informações relevantes que não foram contempladas nas dimensões anteriores. As colunas apropriadas serão identificadas e selecionadas posteriormente.
+
+3. Criação da Tabela de Calendário
+Utilizando funções DAX, CALENDAR(01/01/2013, 31/12/2013), foi criada a dimensão de tempo, essencial para análises temporais.
+
+4. Criação da Tabela Fato
+F_Vendas
+Esta tabela fato contém métricas de vendas e informações relacionadas. Inclui colunas como SK_ID (chave primária da tabela fato), ID_Produto, Produto, Units Sold, Sales Price, Discount Band, Segment, Country, Salers, Profit e Date.
+
+5. Reorganização das Colunas
+As colunas foram reorganizadas de acordo com a estrutura do modelo de estrela, garantindo que as chaves estrangeiras estejam corretamente relacionadas às dimensões.
+Este processo resultou na construção de um modelo de estrela robusto e eficiente, adequado para análises detalhadas e insights significativos sobre os dados de vendas.

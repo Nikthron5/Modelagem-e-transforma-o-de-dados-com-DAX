@@ -1,0 +1,38 @@
+1. Extração e Cópia dos Dados
+
+A primeira etapa envolve a extração dos dados da tabela original "Financial Sample" e a criação de uma cópia oculta chamada "Financials_origem" para backup. Foi feito utilizand ferramentas de ETL (Extract, Transform, Load).
+
+2. Criação das Tabelas D.
+D_Produtos
+Para calcular as métricas como Média de Unidades Vendidas e Médias do valor de vendas, podemos usar funções DAX como AVERAGE.
+Para calcular a Mediana do valor de vendas, podemos usar a função MEDIAN.
+Para encontrar o Valor máximo e mínimo de Venda, usamos as funções MAX e MIN, respectivamente.
+
+D_Produtos_Detalhes
+Não há necessidade de calcular métricas, apenas selecionar as colunas relevantes da tabela original.
+
+D_Descontos
+Informações dos descontos são extraídas diretamente da tabela original.
+
+D_Detalhes
+Esta dimensão foi construída utilizando dados adicionais que não se encaixam nas dimensões anteriores.
+
+3. Criação da Tabela de Calendário
+Utilizando a função DAX CALENDAR(), criamos uma tabela de calendário que abrange o período de datas presente nos dados de vendas. Essa tabela pode ser expandida com colunas adicionais, como dia da semana, mês, ano, trimestre.
+
+4. Criação da Tabela F.
+F_Vendas
+As métricas de vendas são extraídas diretamente da tabela original "Financial Sample".
+As colunas de data devem ser vinculadas à tabela de calendário, garantindo uma análise temporal eficiente.
+
+5. Reorganização das Colunas e Relacionamentos
+As colunas são organizadas de acordo com a estrutura do modelo de estrela.
+Relacionamentos são estabelecidos entre as tabelas fato e dimensão usando chaves primárias e estrangeiras.
+
+
+Funcionalidades e Funções DAX
+AVERAGE: Calcula a média de um conjunto de valores.
+MEDIAN: Retorna a mediana de um conjunto de números.
+MAX/MIN: Retorna o valor máximo/mínimo de um conjunto de valores.
+CALENDAR(): Cria uma tabela de calendário no Power BI.
+Relacionamentos no Power BI: Estabelece vínculos entre tabelas para facilitar a análise de dados.
